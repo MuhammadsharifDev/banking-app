@@ -25,6 +25,7 @@ int _selectIndex=0;
         backgroundColor: Colors.deepOrange.withOpacity(0.5),
         animationDuration: const Duration(milliseconds: 300),
         color: Colors.deepOrange.withOpacity(0.8),
+        height: 65,
         index: _selectIndex,
         onTap: (index){
         setState(() {
@@ -34,7 +35,7 @@ int _selectIndex=0;
         letIndexChange: (index) => true,
         items:const [
           Icon(Icons.home_filled),
-          Icon(Icons.credit_card),
+          Icon(Icons.add),
           Icon(Icons.settings),
         ],
       ),

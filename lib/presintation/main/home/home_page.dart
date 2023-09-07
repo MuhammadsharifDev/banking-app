@@ -1,5 +1,8 @@
 import 'package:banking_app/core/widgets/textstyle.dart';
+import 'package:banking_app/presintation/main/home/widget/listview_widget.dart';
+import 'package:banking_app/route/routes_name.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,60 +30,131 @@ class HomePage extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height: media.size.height * 10 / 812,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Icon(Icons.add),
-                    StyleTextModel.items(text: 'Home', size: 15),
-                    const CircleAvatar(
-                      radius: 20,
-                      foregroundImage:
-                          AssetImage('assets/png_images/myself.jpg'),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                     IconButton(onPressed: (){
+                       Navigator.pushNamed(context, RoutesName.detail);
+                     }, icon: Icon(Icons.add)),
+                      StyleTextModel.items(text: 'Home', size: 15),
+                      const CircleAvatar(
+                        radius: 20,
+                        foregroundImage:
+                            AssetImage('assets/png_images/myself.jpg'),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: media.size.height * 50 / 812,
                 ),
-                StyleTextModel.items(
-                    text: 'Your Current Balance',
-                    size: 20,
-                    color: Colors.white),
-                StyleTextModel.items(
-                    text: '\$1857,56', size: 60, color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: StyleTextModel.items(
+                      text: 'Your Current Balance',
+                      size: 20,
+                      color: Colors.white),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: StyleTextModel.items(
+                      text: '\$1857,56', size: 60, color: Colors.white),
+                ),
                 SizedBox(
                   height: media.size.height * 25 / 812,
                 ),
                 SizedBox(
                   height: media.size.height * 250 / 812,
-                  child: ListView.separated(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context, index) => Container(
-                      width: 200,
-                      height: 100,
-                      decoration: BoxDecoration(
-                          color: Colors.black26,
-                          borderRadius: BorderRadius.circular(15),
-                          border:
-                              Border.all(color: Colors.white.withOpacity(0.5)),
-                          boxShadow: const [
-                            BoxShadow(color: Colors.black26, blurRadius: 10),
-                          ]),
-                    ),
-                    separatorBuilder: (context, index) => SizedBox(
-                      width: media.size.width * 15 / 375,
-                    ),
+                  child: ListViewWidget(),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20,right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      StyleTextModel.items(
+                          text: 'Transaction History',
+                          size: 15,
+                          color: Colors.white),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, RoutesName.history);
+                        },
+                        child: StyleTextModel.items(
+                            text: 'View all', size: 13, color: Colors.grey),
+                      ),
+                    ],
                   ),
+                ),
+                const SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20,right: 20),
+                  child: StyleTextModel.items(text: 'Google Courses', size: 20,),
+                ),
+                const SizedBox(height: 10,),
+                const Padding(
+                  padding: EdgeInsets.only(right: 20,left: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('App Design Basics',style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontFamily: (''),
+                      )),
+                      Text('-\$149',style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontFamily: (''),
+                      )),
+                    ],
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20,right: 20),
+                  child: Divider(),
+                ),
+                const SizedBox(height: 10,),
+               Padding(
+                 padding: const EdgeInsets.only(left: 20,right: 20),
+                 child: StyleTextModel.items(text: 'Microsoft', size: 20,),
+               ),
+                const SizedBox(height: 10,),
+                const Padding(
+                  padding: EdgeInsets.only(right:20,left: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('App Design Basics',style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontFamily: (''),
+                      )),
+                      Text('-\$149',style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontFamily: (''),
+                      )),
+                    ],
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20,right: 20),
+                  child: Divider(),
                 ),
               ],
             ),
