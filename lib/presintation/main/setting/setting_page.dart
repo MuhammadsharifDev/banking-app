@@ -6,9 +6,6 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Setting'),
-      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,

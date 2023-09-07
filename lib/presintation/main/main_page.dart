@@ -1,4 +1,5 @@
-import 'package:banking_app/presintation/main/card/card_page.dart';
+
+import 'package:banking_app/presintation/main/addcard/addcard_page.dart';
 import 'package:banking_app/presintation/main/home/home_page.dart';
 import 'package:banking_app/presintation/main/setting/setting_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -14,7 +15,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
 List Screens=[
   HomePage(),
-  CardPage(),
+  AddCardPage(),
   SettingPage(),
 ];
 int _selectIndex=0;
