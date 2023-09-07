@@ -22,8 +22,9 @@ int _selectIndex=0;
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.grey.withOpacity(0.5),
+        backgroundColor: Colors.deepOrange.withOpacity(0.5),
         animationDuration: const Duration(milliseconds: 300),
+        color: Colors.deepOrange.withOpacity(0.8),
         index: _selectIndex,
         onTap: (index){
         setState(() {

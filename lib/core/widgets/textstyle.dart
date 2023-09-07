@@ -9,7 +9,7 @@ class StyleTextModel {
       var fontWeight}) {
     return Text(
       text,
-      style: GoogleFonts.inter(
+      style: GoogleFonts.aclonica(
           fontSize: size, fontWeight: fontWeight, color: color),
     );
   }
