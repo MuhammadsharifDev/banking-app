@@ -1,10 +1,8 @@
 import 'package:banking_app/core/widgets/textstyle.dart';
 import 'package:banking_app/presintation/main/home/widget/stream_builder_widget.dart';
 import 'package:banking_app/route/routes_name.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

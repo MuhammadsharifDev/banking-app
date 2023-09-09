@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
 List Screens=[
   HomePage(),
   CardsPage(),
-  ContactsPage(),
+  SettingPage(),
 ];
 int _selectIndex=0;
   @override
