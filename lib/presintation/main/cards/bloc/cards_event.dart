@@ -7,3 +7,7 @@ class IsLikeEvent extends CardsEvent{
   IsLikeEvent({required this.isLike});
 
 }
+
+class DeleteDataEvent extends CardsEvent{
+
+}

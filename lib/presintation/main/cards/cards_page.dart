@@ -1,4 +1,5 @@
 import 'package:banking_app/core/widgets/textstyle.dart';
+import 'package:banking_app/core/widgets/toast_widget.dart';
 import 'package:banking_app/presintation/main/cards/bloc/cards_bloc.dart';
 import 'package:banking_app/presintation/main/cards/widget/title_listview_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -78,68 +79,90 @@ class _CardsPageState extends State<CardsPage> {
                             scrollDirection: Axis.vertical,
                             itemCount: allcards.length,
                             itemBuilder: (context, index) {
-                              return Container(
-                                height: media.size.height * 250 / 812,
-                                decoration: BoxDecoration(
-                                  color: Colors.black26,
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        color: Colors.black26, blurRadius: 10),
-                                  ],
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const SizedBox(
-                                        height: 10,
+                              return GestureDetector(
+                                onLongPress: (){
+                                  showDialog(context: context, builder: (context) {
+                                    return AlertDialog(
+                                      title: StyleTextModel.items(text: 'Are you sure for delete', size: 15),
+                                      content: const SingleChildScrollView(
+                                        child: ListBody(
+                                          children: <Widget>[
+                                            Text('This is a demo alert dialog.'),
+                                            Text('Would you like to approve of this message?'),
+                                          ],
+                                        ),
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          const Icon(
-                                            Icons.account_balance,
-                                            color: Colors.white,
-                                          ),
-                                          SizedBox(
-                                            height: 30,
-                                            width: 30,
-                                            child: SvgPicture.asset(
-                                                'assets/svg_icons/wifi.svg'),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: media.size.height * 20 / 812,
-                                      ),
-                                      allcards[index],
-                                      SizedBox(
-                                        height: media.size.height * 20 / 812,
-                                      ),
-                                      Stack(
-                                        children: [
-                                        IconButton(onPressed: (){
-                                          setState(() {
-
-                                          });
-                                        }, icon: const Icon(Icons.delete,color: Colors.red,),),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          SvgPicture.asset(
-                                              'assets/svg_icons/master_card.svg'),
-                                        ],
-                                      )
+                                      actions: <Widget>[
+                                        Row(
+                                          children: [
+                                            TextButton(onPressed: (){
+                                              Navigator.pop(context);
+                                            }, child: StyleTextModel.items(text: 'No', size: 12),),
+                                            const Spacer(),
+                                            TextButton(onPressed: (){
+                                               deleteData(snapshot.data?.docs[index].id);
+                                               Navigator.pop(context);
+                                            }, child: StyleTextModel.items(text: 'Yes', size: 12),),
+                                          ],
+                                        )
+                                      ],
+                                    );
+                                  },);
+                                },
+                                child: Container(
+                                  height: media.size.height * 200 / 812,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black26,
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(
+                                        color: Colors.white.withOpacity(0.5)),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                          color: Colors.black26, blurRadius: 10),
                                     ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            const Icon(
+                                              Icons.account_balance,
+                                              color: Colors.white,
+                                            ),
+                                            SizedBox(
+                                              height: 30,
+                                              width: 30,
+                                              child: SvgPicture.asset(
+                                                  'assets/svg_icons/wifi.svg'),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: media.size.height * 20 / 812,
+                                        ),
+                                        allcards[index],
+                                        SizedBox(
+                                          height: media.size.height * 20 / 812,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/svg_icons/master_card.svg'),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               );
@@ -160,5 +183,9 @@ class _CardsPageState extends State<CardsPage> {
         ),
       ),
     );
+  }
+  void deleteData(id)async{
+    await FirebaseFirestore.instance.collection('cards').doc(id).delete();
+    getMyToast(message: 'Success Delete');
   }
 }
