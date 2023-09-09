@@ -4,7 +4,7 @@ class RoutesName{
   static const signup='/signup';
   static const main='/main';
   static const history='/history';
-  static const detail='/detail';
+  static const cards='/cards';
   static const home='/home';
 
 }
