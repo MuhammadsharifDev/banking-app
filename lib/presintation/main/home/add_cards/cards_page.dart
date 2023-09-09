@@ -5,14 +5,14 @@ import 'package:banking_app/core/widgets/toast_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class CardsPage extends StatefulWidget {
-  const CardsPage({super.key});
+class AddCardPage extends StatefulWidget {
+  const AddCardPage({super.key});
 
   @override
-  State<CardsPage> createState() => _CardsPageState();
+  State<AddCardPage> createState() => _AddCardPageState();
 }
 
-class _CardsPageState extends State<CardsPage> {
+class _AddCardPageState extends State<AddCardPage> {
   TextEditingController numberController = TextEditingController();
   TextEditingController validityController = TextEditingController();
 

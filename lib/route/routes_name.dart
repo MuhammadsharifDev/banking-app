@@ -6,5 +6,6 @@ class RoutesName{
   static const history='/history';
   static const cards='/cards';
   static const home='/home';
+  static const addcard='/addcard';
 
 }
