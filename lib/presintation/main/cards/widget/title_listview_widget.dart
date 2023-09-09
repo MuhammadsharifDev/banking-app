@@ -15,8 +15,7 @@ class TitleListViewWidget extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       children: [
         Container(
-          width: 300,
-          height: 100,
+          width: media.size.width*250/362,
           decoration: BoxDecoration(
             color: Colors.black26,
             borderRadius: BorderRadius.circular(15),

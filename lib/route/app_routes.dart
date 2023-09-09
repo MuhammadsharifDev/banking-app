@@ -4,7 +4,7 @@ import 'package:banking_app/presintation/auth/signup/bloc/signup_bloc.dart';
 import 'package:banking_app/presintation/auth/signup/signup_page.dart';
 import 'package:banking_app/presintation/main/cards/bloc/cards_bloc.dart';
 import 'package:banking_app/presintation/main/cards/cards_page.dart';
-import 'package:banking_app/presintation/main/home/add_cards/cards_page.dart';
+import 'package:banking_app/presintation/main/home/add_cards/add_cards.dart';
 import 'package:banking_app/presintation/main/home/history/history_page.dart';
 import 'package:banking_app/presintation/main/home/home_page.dart';
 import 'package:banking_app/route/routes_name.dart';
