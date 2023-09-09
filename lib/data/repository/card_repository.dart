@@ -25,7 +25,7 @@ class CardRepository {
 
   ///________________READ CARD___________________________
 
-  Stream<List<CardModel>> getAllContacts() =>
+  Stream<List<CardModel>> getAllCard() =>
       firestore.collection("cards").snapshots().map((querySnapshot) =>
           querySnapshot.docs.map((e) => CardModel.fromJson(e.data())).toList());
 
@@ -39,7 +39,8 @@ class CardRepository {
           .update(cardModel.toJson());
       getMyToast(message: "Contact muvaffaqiyatli yangilandi!");
     } on FirebaseException catch (e) {
-      getMyToast(message: e.message.toString());
+      print('EROR===>${e}');
+      getMyToast(message: e.message.toString(),);
     }
   }
 
@@ -50,6 +51,7 @@ class CardRepository {
       await firestore.collection("cards").doc(docId).delete();
       getMyToast(message: "Carta muvaffaqiyatli o'chirildi");
     } on FirebaseException catch (e) {
+      print('ERORRRR=>>>$e');
       getMyToast(message: e.message.toString());
     }
   }

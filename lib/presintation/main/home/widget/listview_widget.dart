@@ -1,5 +1,8 @@
 import 'package:banking_app/core/widgets/textstyle.dart';
+import 'package:banking_app/presintation/main/home/cubit/getcard_cubit.dart';
+import 'package:banking_app/presintation/main/home/cubit/getcard_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ListViewWidget extends StatelessWidget {
@@ -8,7 +11,10 @@ class ListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context);
-    return ListView.separated(
+    return BlocBuilder<GetCardCubit, GetCardState>(
+  builder: (context, state) {
+    return state is GetCardInSuccess?
+    ListView.separated(
       physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.horizontal,
       itemCount: 5,
@@ -28,7 +34,7 @@ class ListViewWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -41,9 +47,9 @@ class ListViewWidget extends StatelessWidget {
                 ],
               ),
               SizedBox(height: media.size.height*20/812,),
-              StyleTextModel.items(text: 'Debit Card', size: 20,color: Colors.white.withOpacity(0.5)),
+              StyleTextModel.items(text: state.card[index].cardNumber, size: 20,color: Colors.white.withOpacity(0.5)),
               SizedBox(height: media.size.height*20/812,),
-              StyleTextModel.items(text: 'Adom Shaefi   12/24', size: 10,color: Colors.white),
+              StyleTextModel.items(text:state.card[index].name, size: 10,color: Colors.white),
               SizedBox(height: media.size.height*50/812,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -58,6 +64,9 @@ class ListViewWidget extends StatelessWidget {
       separatorBuilder: (context, index) => SizedBox(
         width: media.size.width * 15 / 375,
       ),
-    );
+    )
+    :const CircularProgressIndicator();
+  },
+);
   }
 }

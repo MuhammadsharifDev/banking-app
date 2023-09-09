@@ -4,6 +4,7 @@ import 'package:banking_app/presintation/auth/signup/bloc/signup_bloc.dart';
 import 'package:banking_app/presintation/auth/signup/signup_page.dart';
 import 'package:banking_app/presintation/main/home/detail/detail_page.dart';
 import 'package:banking_app/presintation/main/home/history/history_page.dart';
+import 'package:banking_app/presintation/main/home/home_page.dart';
 import 'package:banking_app/route/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,6 +35,10 @@ class AppRoutes {
       case RoutesName.detail:
         return MaterialPageRoute(
           builder: (context) => const DetailPage(),
+        );
+      case RoutesName.home:
+        return MaterialPageRoute(
+          builder: (context) => const HomePage(),
         );
     }
   }

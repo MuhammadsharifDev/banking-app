@@ -56,6 +56,9 @@ dependencies:
   slide_to_act: ^2.0.1
   fluttertoast: ^8.1.1
   swipeable_button_view: ^0.0.2
+  flutter_credit_card: ^3.0.7
+  firebase_in_app_messaging: ^0.7.0+7
+
 
 
 dev_dependencies:
