@@ -107,6 +107,7 @@ class _AddCardPageState extends State<AddCardPage> {
                     "Invalid Value";
                   }
                 },
+              maxLength: 16,
                 decoration: InputDecorationModel.items(
                   hintext: '0000 0000 0000 0000',
                   suffixIcon: IconButton(
@@ -120,6 +121,7 @@ class _AddCardPageState extends State<AddCardPage> {
                 height: 80,width: 150,
                child:   TextFormField(
                  controller: validityController,
+                 maxLength: 4,
                  keyboardType: TextInputType.phone,
                  validator: (value) {
                    if (value!.isNotEmpty) {

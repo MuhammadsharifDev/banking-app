@@ -63,9 +63,9 @@ class TitleListViewWidget extends StatelessWidget {
                             },
                             icon: Icon(
                               state.isLike
-                                  ? Icons.favorite_border_sharp
-                                  : Icons.favorite,
-                              color: state.isLike ? Colors.grey : Colors.red,
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_sharp,
+                              color: state.isLike ? Colors.red : Colors.grey,
                             ),
                           );
                         },
@@ -142,9 +142,9 @@ class TitleListViewWidget extends StatelessWidget {
                               },
                               icon: Icon(
                                 state.isLike
-                                    ? Icons.favorite_border_sharp
-                                    : Icons.favorite,
-                                color: state.isLike ? Colors.grey : Colors.red,
+                                    ? Icons.favorite
+                                    : Icons.favorite_border_sharp,
+                                color: state.isLike ? Colors.red : Colors.grey,
                               ),
                           );
                         },
