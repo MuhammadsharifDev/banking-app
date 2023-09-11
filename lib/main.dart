@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'firebase_options.dart';
 
@@ -23,12 +24,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return KeyboardDismisser(
       child: MaterialApp(
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
+        supportedLocales: [
+          Locale('en', 'US'),
+          Locale('fr', ''),
+          Locale('uz','Uz'),
+        ],
         initialRoute: RoutesName.signup,
         onGenerateRoute: AppRoutes.onGenerateRoute,
       ),

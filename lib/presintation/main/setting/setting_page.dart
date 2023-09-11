@@ -12,10 +12,35 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
+  List languages=[
+    'English',
+    'Uzbek',
+    'France',
+  ];
+  String lang='English';
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context);
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.yellow,
+        elevation: 0,
+        actions: [
+          DropdownButton(
+            value: lang,
+            onChanged:(value) {
+              setState(() {
+                lang!=value;
+              });
+            },
+            items: languages.map((value){
+              return DropdownMenuItem(
+                  value: value,
+                  child: Text(value,style: const TextStyle(color: Colors.black),));
+            }).toList(),
+          ),
+        ],
+      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,

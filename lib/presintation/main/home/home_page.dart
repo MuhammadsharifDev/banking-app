@@ -4,6 +4,7 @@ import 'package:banking_app/route/routes_name.dart';
 import 'package:flutter/material.dart';
 
 
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -147,7 +148,7 @@ class HomePage extends StatelessWidget {
                         fontSize: 17,
                         color: Colors.white,
                         fontFamily: (''),
-                      )),
+                      ),),
                       Text('-\$149', style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -167,6 +168,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }
