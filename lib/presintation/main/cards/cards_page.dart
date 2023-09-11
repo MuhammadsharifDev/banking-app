@@ -139,8 +139,8 @@ class _CardsPageState extends State<CardsPage> {
                                               color: Colors.white,
                                             ),
                                             SizedBox(
-                                              height: 30,
-                                              width: 30,
+                                              height: media.size.height*25/812,
+                                              width:  media.size.width*25/360,
                                               child: SvgPicture.asset(
                                                   'assets/svg_icons/wifi.svg'),
                                             ),
@@ -150,9 +150,6 @@ class _CardsPageState extends State<CardsPage> {
                                           height: media.size.height * 20 / 812,
                                         ),
                                         allcards[index],
-                                        SizedBox(
-                                          height: media.size.height * 20 / 812,
-                                        ),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,

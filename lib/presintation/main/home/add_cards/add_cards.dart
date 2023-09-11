@@ -64,8 +64,8 @@ class _AddCardPageState extends State<AddCardPage> {
                         color: Colors.white,
                       ),
                       SizedBox(
-                        height: 30,
-                        width: 30,
+                        height: media.size.height*30/812,
+                        width: media.size.width*30/360,
                         child: SvgPicture.asset(
                             'assets/svg_icons/wifi.svg'),
                       ),
@@ -82,9 +82,6 @@ class _AddCardPageState extends State<AddCardPage> {
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                   ),
-                  ),
-                  SizedBox(
-                    height: media.size.height * 50 / 812,
                   ),
                   Row(
                     mainAxisAlignment:
