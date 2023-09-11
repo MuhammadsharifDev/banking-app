@@ -25,7 +25,7 @@ class _CardsPageState extends State<CardsPage> {
         toolbarHeight: 200,
         backgroundColor: Colors.grey,
         title: SizedBox(
-          height: media.size.height * 150 / 812,
+          height: media.size.height * 180 / 812,
           child: const TitleListViewWidget(),
         ),
       ),

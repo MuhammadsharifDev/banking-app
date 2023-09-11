@@ -15,7 +15,7 @@ class TitleListViewWidget extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       children: [
         Container(
-          width: media.size.width*250/362,
+          width: media.size.width*200/362,
           decoration: BoxDecoration(
             color: Colors.black26,
             borderRadius: BorderRadius.circular(15),
@@ -36,14 +36,14 @@ class TitleListViewWidget extends StatelessWidget {
                       color: Colors.white,
                     ),
                     SizedBox(
-                      height: 25,
-                      width: 25,
+                      height: media.size.height*25/812,
+                      width: media.size.height*15/365,
                       child: SvgPicture.asset('assets/svg_icons/wifi.svg'),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: media.size.height * 10 / 812,
+                  height: media.size.height * 5 / 812,
                 ),
                 StyleTextModel.items(
                     text: 'Your name', size: 15, color: Colors.white),
